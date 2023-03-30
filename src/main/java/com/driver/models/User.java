@@ -1,7 +1,5 @@
 package com.driver.models;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +14,7 @@ public class User {
    private String firstName;
    private String lastName;
    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-   List<Blog> blogs = new ArrayList<>();
+   List<Blog> blogList = new ArrayList<>();
 
    public int getId() {
       return id;
@@ -58,23 +56,23 @@ public class User {
       this.lastName = lastName;
    }
 
-   public List<Blog> getBlogs() {
-      return blogs;
+   public List<Blog> getBlogList() {
+      return blogList;
    }
 
-   public void setBlogs(List<Blog> blogs) {
-      this.blogs = blogs;
+   public void setBlogList(List<Blog> blogList) {
+      this.blogList = blogList;
    }
 
    public User() {
    }
 
-   public User(int id, String username, String password, String firstName, String lastName, List<Blog> blogs) {
+   public User(int id, String username, String password, String firstName, String lastName, List<Blog> blogList) {
       this.id = id;
       this.username = username;
       this.password = password;
       this.firstName = firstName;
       this.lastName = lastName;
-      this.blogs = blogs;
+      this.blogList = blogList;
    }
 }
